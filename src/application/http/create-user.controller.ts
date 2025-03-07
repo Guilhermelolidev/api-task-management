@@ -1,4 +1,5 @@
 import * as z from 'zod';
+import { UserRoles } from '../../domain/entities/user.entity';
 import { CreateUserUseCase } from '../../domain/use-cases/create-user';
 import { IUserRepository } from '../../interfaces/user-repository.interface';
 import { httpResponse } from '../../shared/helpers/httpResponse';
@@ -19,9 +20,7 @@ const zodValidator = z.object({
   password: z.string({
     required_error: 'Password is required',
   }),
-  role: z.string({
-    required_error: 'Role is required',
-  }),
+  role: z.nativeEnum(UserRoles),
 });
 
 export class CreateUserController {
