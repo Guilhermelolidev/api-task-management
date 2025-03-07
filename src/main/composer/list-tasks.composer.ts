@@ -1,5 +1,5 @@
 import { listTasksController } from '../../application/http/list-tasks.controller';
-import { TaskRepositoryImpl } from '../../infrastructure/repositories/task.repository';
+import { TaskRepositoryImpl } from '../../infrastructure/database/repositories/task.repository';
 import { HttpRequest } from '../../shared/types/httpRequest';
 
 export async function listTasksComposer(httpRequest: HttpRequest) {

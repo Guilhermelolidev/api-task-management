@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { TaskStatus } from '../../domain/entities/task.entity';
+import { Task, TaskStatus } from '../../domain/entities/task.entity';
 import { CreateTaskUseCase } from '../../domain/use-cases/create-task';
 import { ITaskRepository } from '../../interfaces/task-repository.interface';
 import { IUserRepository } from '../../interfaces/user-repository.interface';
@@ -47,7 +47,7 @@ export class CreateTaskController {
 
     return output.fold(
       (error: any) => httpResponse(400, error.message),
-      (task: any) => httpResponse(201, task)
+      (task: Task) => httpResponse(201, task)
     );
   }
 }

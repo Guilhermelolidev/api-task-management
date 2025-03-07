@@ -7,8 +7,7 @@ export class CreateUserUseCase {
   constructor(private userRepository: IUserRepository) {}
 
   async execute({ name, email, password, role }: User): Promise<Either> {
-    // logica do negocio ex: verificar email, criptografar senha
-    // é o coração do negocio
+    // logica do negocio: verificar email, criptografar senha
     const userExists = await this.userRepository.findByEmail(email);
 
     if (userExists) {
@@ -22,7 +21,6 @@ export class CreateUserUseCase {
     user.role = role;
 
     await this.userRepository.create(user);
-
     return Either.Right(null);
   }
 }

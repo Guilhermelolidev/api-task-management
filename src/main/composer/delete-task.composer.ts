@@ -1,5 +1,5 @@
 import { DeleteTaskController } from '../../application/http/delete-task.controller';
-import { TaskRepositoryImpl } from '../../infrastructure/repositories/task.repository';
+import { TaskRepositoryImpl } from '../../infrastructure/database/repositories/task.repository';
 import { HttpRequest } from '../../shared/types/httpRequest';
 
 export async function deleteTaskComposer(httpRequest: HttpRequest) {

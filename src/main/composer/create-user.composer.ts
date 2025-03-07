@@ -1,5 +1,5 @@
 import { CreateUserController } from '../../application/http/create-user.controller';
-import { UserRepositoryImpl } from '../../infrastructure/repositories/user.repository';
+import { UserRepositoryImpl } from '../../infrastructure/database/repositories/user.repository';
 import { HttpRequest } from '../../shared/types/httpRequest';
 
 export async function createUserComposer(httpRequest: HttpRequest) {
