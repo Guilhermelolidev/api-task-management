@@ -1,4 +1,5 @@
 import { ListTasksController } from '../../src/application/http/list-tasks.controller';
+import { TaskStatus } from '../../src/domain/entities/task.entity';
 import { httpResponse } from '../../src/shared/helpers/httpResponse';
 
 describe('CreateUserController', () => {
@@ -36,6 +37,20 @@ describe('CreateUserController', () => {
     mockTaskRepository.list.mockResolvedValue(tasks);
     const httpRequest = {
       query: {},
+    };
+
+    const response = await listTasksController.list(httpRequest);
+
+    expect(response).toEqual(httpResponse(201, tasks));
+    expect(mockTaskRepository.list).toHaveBeenCalledTimes(1);
+  });
+
+  //back here to verify the execute from useCase
+  it('must return 201 and a list of tasks filtering by a valid status', async () => {
+    const httpRequest = {
+      query: {
+        status: TaskStatus.COMPLETED,
+      },
     };
 
     const response = await listTasksController.list(httpRequest);

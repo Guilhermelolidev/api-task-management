@@ -30,14 +30,14 @@ export class UpdateTaskUseCase {
       return Either.Left(Either.Error('User not found'));
     }
 
-    const taskCreated = await this.taskRepository.update({
+    const taskUpdated = await this.taskRepository.update({
       id: Number(id),
       title,
       description,
       status,
       user: userExists,
     });
-
-    return Either.Right(taskCreated);
+    console.log(taskUpdated);
+    return Either.Right(taskUpdated);
   }
 }
