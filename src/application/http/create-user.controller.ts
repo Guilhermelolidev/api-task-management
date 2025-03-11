@@ -43,7 +43,7 @@ export class CreateUserController {
       password,
       role,
     });
-    console.log('output', output);
+
     return output.fold(
       (error: any) => httpResponse(400, error.message),
       () => httpResponse(201, null)

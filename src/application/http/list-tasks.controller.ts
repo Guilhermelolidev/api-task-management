@@ -10,7 +10,7 @@ const zodValidator = z.object({
   status: z.nativeEnum(TaskStatus).optional(),
 });
 
-export class listTasksController {
+export class ListTasksController {
   private listTasksUseCase: ListTasksUseCase;
 
   constructor(taskRepository: ITaskRepository) {

@@ -5,9 +5,9 @@ export class DeleteTaskUseCase {
   constructor(private taskRepository: ITaskRepository) {}
 
   async execute(id: string): Promise<Either> {
-    const task = await this.taskRepository.findById(id);
+    const taskExists = await this.taskRepository.findById(id);
 
-    if (!task) {
+    if (!taskExists) {
       return Either.Left(Either.Error('Task not found'));
     }
 
