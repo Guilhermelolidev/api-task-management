@@ -1,6 +1,10 @@
 import { TaskStatus } from '../../src/domain/entities/task.entity';
 import { UpdateTaskUseCase } from '../../src/domain/use-cases/update-task';
 import { Either } from '../../src/shared/errors';
+import {
+  mockTaskRepository,
+  mockUserRepository,
+} from '../../src/shared/mocks/repositories';
 
 describe('UpdateTaskUseCase', () => {
   const taskDTO = {
@@ -29,18 +33,6 @@ describe('UpdateTaskUseCase', () => {
     description: 'any_description',
     status: TaskStatus.PENDING,
     user: userExists,
-  };
-  const mockTaskRepository = {
-    findById: jest.fn(),
-    list: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn(),
-  };
-  const mockUserRepository = {
-    findByEmail: jest.fn(),
-    create: jest.fn(),
-    findById: jest.fn(),
   };
 
   let updateTaskUseCase: UpdateTaskUseCase;

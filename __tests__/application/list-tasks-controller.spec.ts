@@ -1,16 +1,9 @@
 import { ListTasksController } from '../../src/application/http/list-tasks.controller';
 import { TaskStatus } from '../../src/domain/entities/task.entity';
 import { httpResponse } from '../../src/shared/helpers/httpResponse';
+import { mockTaskRepository } from '../../src/shared/mocks/repositories';
 
 describe('CreateUserController', () => {
-  const mockTaskRepository = {
-    findById: jest.fn(),
-    list: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn(),
-  };
-
   const tasks = [
     {
       id: 1,

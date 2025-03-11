@@ -1,19 +1,12 @@
 import { DeleteTaskController } from '../../src/application/http/delete-task.controller';
 import { httpResponse } from '../../src/shared/helpers/httpResponse';
+import { mockTaskRepository } from '../../src/shared/mocks/repositories';
 
 jest.mock('../../src/shared/utils/hashPassword', () => ({
   hashPassword: jest.fn().mockResolvedValue('hashed_password'),
 }));
 
 describe('CreateUserController', () => {
-  const mockTaskRepository = {
-    findById: jest.fn(),
-    list: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn(),
-  };
-
   const taskExists = {
     id: 1,
     title: 'teste update1',

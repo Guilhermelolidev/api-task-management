@@ -2,7 +2,7 @@ require('express-async-errors');
 
 import express from 'express';
 import { ZodError } from 'zod';
-import { AppDataSource } from '../infrastructure/database/config/data-source';
+import { AppDataSource } from '../infrastructure/database/config/typeorm-setup';
 import { routes } from './routes';
 
 const app = express();

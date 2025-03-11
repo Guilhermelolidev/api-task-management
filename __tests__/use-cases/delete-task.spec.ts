@@ -1,14 +1,8 @@
 import { DeleteTaskUseCase } from '../../src/domain/use-cases/delete-task';
 import { Either } from '../../src/shared/errors';
+import { mockTaskRepository } from '../../src/shared/mocks/repositories';
 
 describe('DeleteTaskUseCase', () => {
-  const mockTaskRepository = {
-    findById: jest.fn(),
-    list: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn(),
-  };
   let deleteTaskUseCase: DeleteTaskUseCase;
 
   beforeEach(() => {

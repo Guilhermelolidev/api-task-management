@@ -1,5 +1,6 @@
 import { CreateUserUseCase } from '../../src/domain/use-cases/create-user';
 import { Either } from '../../src/shared/errors';
+import { mockUserRepository } from '../../src/shared/mocks/repositories';
 import * as hashPasswordModule from '../../src/shared/utils/hashPassword';
 
 jest.mock('../../src/shared/utils/hashPassword', () => ({
@@ -12,12 +13,6 @@ describe('CreateUserUseCase', () => {
     email: 'any_email@gmail.com',
     password: 'any_password',
     role: 'admin',
-  };
-
-  const mockUserRepository = {
-    findByEmail: jest.fn(),
-    create: jest.fn(),
-    findById: jest.fn(),
   };
 
   let createUserUseCase: CreateUserUseCase;

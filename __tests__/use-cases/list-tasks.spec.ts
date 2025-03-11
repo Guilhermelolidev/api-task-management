@@ -1,15 +1,8 @@
 import { TaskStatus } from '../../src/domain/entities/task.entity';
 import { ListTasksUseCase } from '../../src/domain/use-cases/list-tasks';
+import { mockTaskRepository } from '../../src/shared/mocks/repositories';
 
 describe('ListTasksUseCase', () => {
-  const mockTaskRepository = {
-    findById: jest.fn(),
-    list: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn(),
-  };
-
   let listTasksUseCase: ListTasksUseCase;
 
   beforeEach(() => {

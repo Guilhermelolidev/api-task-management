@@ -1,21 +1,12 @@
 import { CreateTaskController } from '../../src/application/http/create-task.controller';
 import { TaskStatus } from '../../src/domain/entities/task.entity';
 import { httpResponse } from '../../src/shared/helpers/httpResponse';
+import {
+  mockTaskRepository,
+  mockUserRepository,
+} from '../../src/shared/mocks/repositories';
 
 describe('CreateTaskController', () => {
-  const mockTaskRepository = {
-    findById: jest.fn(),
-    list: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn(),
-  };
-  const mockUserRepository = {
-    findByEmail: jest.fn(),
-    create: jest.fn(),
-    findById: jest.fn(),
-  };
-
   const taskDTO = {
     description: 'any_description',
     status: TaskStatus.PENDING,
@@ -69,7 +60,7 @@ describe('CreateTaskController', () => {
     expect(mockUserRepository.findById).toHaveBeenCalledTimes(1);
     expect(mockTaskRepository.create).toHaveBeenCalledTimes(1);
   });
-  
+
   test('must return httpResponse 400 and error.message if the creation fails', async () => {
     mockUserRepository.findById.mockResolvedValue(null);
 

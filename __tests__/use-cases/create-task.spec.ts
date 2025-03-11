@@ -1,20 +1,11 @@
 import { CreateTaskUseCase } from '../../src/domain/use-cases/create-task';
 import { Either } from '../../src/shared/errors';
+import {
+  mockTaskRepository,
+  mockUserRepository,
+} from '../../src/shared/mocks/repositories';
 
 describe('CreateTaskUseCase', () => {
-  const mockTaskRepository = {
-    findById: jest.fn(),
-    list: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn(),
-  };
-  const mockUserRepository = {
-    create: jest.fn(),
-    findByEmail: jest.fn(),
-    findById: jest.fn(),
-  };
-
   const taskData = {
     title: 'any_title',
     description: 'any_description',

@@ -37,7 +37,6 @@ export class UpdateTaskUseCase {
       status,
       user: userExists,
     });
-    console.log(taskUpdated);
     return Either.Right(taskUpdated);
   }
 }

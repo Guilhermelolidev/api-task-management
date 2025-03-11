@@ -1,18 +1,13 @@
 import { CreateUserController } from '../../src/application/http/create-user.controller';
 import { UserRoles } from '../../src/domain/entities/user.entity';
 import { httpResponse } from '../../src/shared/helpers/httpResponse';
+import { mockUserRepository } from '../../src/shared/mocks/repositories';
 
 jest.mock('../../src/shared/utils/hashPassword', () => ({
   hashPassword: jest.fn().mockResolvedValue('hashed_password'),
 }));
 
 describe('CreateUserController', () => {
-  const mockUserRepository = {
-    findByEmail: jest.fn(),
-    create: jest.fn(),
-    findById: jest.fn(),
-  };
-
   let createUserController: CreateUserController;
   beforeEach(() => {
     jest.clearAllMocks();

@@ -1,22 +1,13 @@
 import { UpdateTaskController } from '../../src/application/http/update-task.controller';
 import { TaskStatus } from '../../src/domain/entities/task.entity';
 import { httpResponse } from '../../src/shared/helpers/httpResponse';
+import {
+  mockTaskRepository,
+  mockUserRepository,
+} from '../../src/shared/mocks/repositories';
 
 describe('UpdateTaskController', () => {
   let updateTaskController: UpdateTaskController;
-
-  const mockTaskRepository = {
-    findById: jest.fn(),
-    list: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn(),
-  };
-  const mockUserRepository = {
-    findByEmail: jest.fn(),
-    create: jest.fn(),
-    findById: jest.fn(),
-  };
 
   const taskDTO = {
     description: 'any_description',
@@ -70,6 +61,7 @@ describe('UpdateTaskController', () => {
     expect(mockUserRepository.findById).toHaveBeenCalledTimes(1);
     expect(mockTaskRepository.update).toHaveBeenCalledTimes(1);
   });
+
   it('must return 400 and error.message if task not found', async () => {
     mockTaskRepository.findById.mockResolvedValue(null);
     const httpRequest = {

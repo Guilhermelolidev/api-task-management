@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
 import { User } from '../../../domain/entities/user.entity';
 import { IUserRepository } from '../../../interfaces/user-repository.interface';
-import { AppDataSource } from '../config/data-source';
+import { AppDataSource } from '../config/typeorm-setup';
 
 // interage com o banco
 // guarda e busca os dados

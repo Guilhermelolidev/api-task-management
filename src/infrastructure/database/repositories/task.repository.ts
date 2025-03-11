@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
 import { Task, TaskStatus } from '../../../domain/entities/task.entity';
 import { ITaskRepository } from '../../../interfaces/task-repository.interface';
-import { AppDataSource } from '../config/data-source';
+import { AppDataSource } from '../config/typeorm-setup';
 
 export class TaskRepositoryImpl implements ITaskRepository {
   private repository: Repository<Task>;

@@ -1,4 +1,3 @@
-// src/shared/utils/hashPassword.ts
 import * as bcrypt from 'bcrypt';
 
 export async function hashPassword(password: string) {
