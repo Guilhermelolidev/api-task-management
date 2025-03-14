@@ -3,8 +3,6 @@ import { User } from '../../../domain/entities/user.entity';
 import { IUserRepository } from '../../../interfaces/user-repository.interface';
 import { AppDataSource } from '../config/typeorm-setup';
 
-// interage com o banco
-// guarda e busca os dados
 export class UserRepositoryImpl implements IUserRepository {
   private repository: Repository<User>;
 

@@ -7,7 +7,6 @@ export class CreateUserUseCase {
   constructor(private userRepository: IUserRepository) {}
 
   async execute({ name, email, password, role }: User): Promise<Either> {
-    // logica do negocio: verificar email, criptografar senha
     const userExists = await this.userRepository.findByEmail(email);
 
     if (userExists) {

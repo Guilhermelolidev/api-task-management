@@ -31,8 +31,6 @@ export class CreateUserController {
   }
 
   async create(httpRequest: HttpRequest): Promise<HttpResponse> {
-    // recebe os dados e faz a validacao
-    // chama o caso de uso
     const { name, email, password, role } = zodValidator.parse(
       httpRequest.body
     );

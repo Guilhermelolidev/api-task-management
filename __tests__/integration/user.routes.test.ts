@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 import request from 'supertest';
 import { AppDataSource } from '../../src/infrastructure/database/config/typeorm-setup';
 import { userRoutes } from '../../src/main/routes/user.routes';
+
 process.env.NODE_ENV = 'test';
 
 describe('UserRoutesIntegration', () => {
